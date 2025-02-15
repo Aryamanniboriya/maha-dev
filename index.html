@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahakumbh Spiritual Interviews</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(-45deg, #caa503, #d3340c, #491607, #944505);
+            background-size: 400% 400%;
+            animation: bgAnimation 10s infinite alternate;
+            color: white;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        @keyframes bgAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
+            border: 2px solid gold;
+            backdrop-filter: blur(8px);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            color: gold;
+            font-size: 2.8em;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 165, 0, 0.7);
+            animation: shimmer 2s infinite alternate;
+        }
+
+        @keyframes shimmer {
+            0% { text-shadow: 0 0 10px gold, 0 0 20px rgba(255, 215, 0, 0.8); }
+            100% { text-shadow: 0 0 20px gold, 0 0 30px rgba(255, 165, 0, 0.7); }
+        }
+
+        .audio-box {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 165, 0, 0.9);
+            border: 2px solid gold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(5px);
+            transform: translateY(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: float 3s infinite alternate ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(5px); }
+            100% { transform: translateY(-5px); }
+        }
+
+        .audio-box:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 165, 0, 0.9);
+        }
+
+        .audio-box img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid gold;
+            box-shadow: 0 0 15px rgba(255, 165, 0, 0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .audio-box img:hover {
+            transform: scale(1.1);
+        }
+
+        p {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: gold;
+            text-shadow: 0 0 10px rgba(255, 165, 0, 1);
+        }
+
+        audio {
+            width: 100%;
+            filter: drop-shadow(0px 0px 10px gold);
+            transition: filter 0.3s ease;
+        }
+
+        audio:hover {
+            filter: drop-shadow(0px 0px 20px gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>महाकुंभ आध्यात्मिक साक्षात्कार</h1>
+        <p>महाकुंभ का पवित्र अनुभव सुनें</p>
+        
+        <div id="audioContainer"></div>
+    </div>
+    
+    <script>
+        const audioFiles = [
+            "a1.mp3", "a2.mp3", "a3.mp3", "a4.mp3", "a5.mp3", 
+            "a6.mp3", "a7.mp3", "a8.mp3", "a9.mp3", "a10.mp3"
+        ];
+        
+        const imageFiles = [
+            "person1.jpg", "person2.jpg", "person3.jpg", "person4.jpg", "person5.jpg", 
+            "person6.jpg", "person7.jpg", "person8.jpg", "person9.jpg", "person10.jpg", "person11.jpg"
+        ];
+        
+        const container = document.getElementById("audioContainer");
+
+        audioFiles.forEach((file, index) => {
+            const div = document.createElement("div");
+            div.classList.add("audio-box");
+            div.style.animation = `fadeIn 1s ease ${index * 0.2}s backwards`; // Staggered animation
+            div.innerHTML = `
+                <img src="${imageFiles[index]}" alt="Interviewee ${index + 1}">
+                <div>
+                    <p>साक्षात्कार ${index + 1}</p>
+                    <audio controls>
+                        <source src="${file}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>
